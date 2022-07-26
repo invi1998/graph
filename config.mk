@@ -5,8 +5,7 @@ export BUILD_ROOT = $(shell pwd)
 export INCLUDE_PATH = $(BUILD_ROOT)/include
 
 # 定义我们需要编译的目录
-BUILD_DIR = $(BUILD_ROOT)/bfs/ \
-			$(BUILD_ROOT)/dfs/ \
+BUILD_DIR = $(BUILD_ROOT)/graph/\
 			$(BUILD_ROOT)/app/
 
 # 编译时是否生成调试信息。GNU调试器可以利用该信息

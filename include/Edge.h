@@ -19,14 +19,21 @@ public:
 public:
   int v();
   int w();
-  Weight wt();
+  Weight wt() const;
 
   int other(int x);
 
   // 重载输出运算符
-  friend ostream &operator<<(ostream &os, const Edge &e);
-
-  auto operator<=>(const Edge<Weight> &e) const = default;
+  friend ostream &operator<<(ostream &os, const Edge<Weight> &e);
+  
+  // c++20编译环境搞不定。不用三路了
+  // auto operator<=>(const Edge<Weight> &e) const = default;
+  bool operator<(const Edge<Weight> &e) { return weight < e.wt(); }
+  bool operator<=(const Edge<Weight> &e)  { return weight <= e.wt(); }
+  bool operator>(const Edge<Weight> &e)  { return weight > e.wt(); }
+  bool operator>=(const Edge<Weight> &e)  { return weight >= e.wt(); }
+  bool operator==(const Edge<Weight> &e)  { return weight == e.wt(); }
+  bool operator!=(const Edge<Weight> &e)  { return weight != e.wt(); }
 };
 
 #endif
